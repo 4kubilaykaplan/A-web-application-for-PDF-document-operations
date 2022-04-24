@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <title>User sorgu</title>
+</head>
+<body>
+    <div class="container">
+        <div class="col-md-6 mx-auto text-center">
+           <div class="header-title">
+              <h1 class="wv-heading--title">
+                 Kullanıcı Sorgu
+              </h1>
+              <h2 class="wv-heading--subtitle">
+                 Filtrelemek istediğiniz alanları doldurduktan sonra filtreleye basınız:
+              </h2>
+           </div>
+        </div>
+        <div class="row">
+           <div class="col-md-4 mx-auto">
+              <div class="myform form ">
+                 <form action="/adminsorgu" method="post">
+                     <div class="form-group">
+                     <input type="text" name="yukleyen_kullanici"  class="form-control my-input" id="yukleyen_kullanici" placeholder="yükleyeci">
+                     </div> 
+                    <div class="form-group">
+                       <input type="text" name="yazar"  class="form-control my-input" id="yazar" placeholder="yazar">
+                    </div>
+                    <div class="form-group">
+                       <input type="text" name="Dönem"  class="form-control my-input" id="dönem" placeholder="Dönem">
+                    </div>
+                    <div class="form-group">
+                       <input type="text"  name="ozet" id="ozet"  class="form-control my-input" placeholder="ozet">
+                    </div>
+                    <div class="form-group">
+                        <input type="text"  name="dersadi" id="dersadi"  class="form-control my-input" placeholder="ders adi">
+                     </div>
+                     <div class="form-group">
+                        <input type="text"  name="Konusu" id="Konusu"  class="form-control my-input" placeholder="Konusu">
+                     </div>
+                     <div class="form-group">
+                        <input type="text"  name="anahtar" id="anahtar"  class="form-control my-input" placeholder="anahtar">
+                     </div>
+                     <div class="form-group">
+                        <input type="text"  name="danisman" id="danisman"  class="form-control my-input" placeholder="danisman">
+                     </div>
+                     <div class="form-group">
+                        <input type="text"  name="juri" id="juri"  class="form-control my-input" placeholder="juri">
+                     </div>
+                    <div class="text-center ">
+                       <button type="submit" class=" btn btn-block send-button tx-tfm">Filtrele</button>
+                    </div>
+                 </form>
+              </div>
+           </div>
+        </div>
+     </div>
+     <div class="container">
+        <table class="table table-hower">
+            <thead>
+                <tr>
+                    <th>Yükleyici</th>
+                    <th>File name</th>
+                    <th>Ders adi</th>
+                    <th>Yazar</th>
+                    <th>konusu</th>
+                    <th>ozeti</th>
+                    <th>danismani</th>
+                    <th>Jüriler</th>
+                    <th>Donemi</th>
+                    <th>Anahtar kelimeler </th>
+                    <th>indir</th>
+                </tr>
+            </thead>
+            <tbody>
+               <% for(var i=0;i<infile.length;i++){%>
+                  <tr>
+                      <th><%=infile[i].proje_kullanici%></th>
+                      <th><%=infile[i].file%></th>
+                      <th><%=infile[i].ders_adi%></th>
+                      <th><%=infile[i].yazar_bilgileri%></th>
+                      <th><%=infile[i].proje_baslik%></th>
+                      <th style="font-size: small;"><%=infile[i].proje_ozet%></th>
+                      <th><%=infile[i].proje_danisman%></th>
+                      <th><%=infile[i].proje_juri%></th>
+                      <th><%=infile[i].proje_teslim_donem%></th>
+                      <th><%=infile[i].proje_anahtar%></th>
+                     <th><a style="background-color: black; border-style: solid; color: white; border-radius: 8px;" href="<%=infile[i].file%>" download>İndir</a></th>
+                  </tr>
+              <%}%>
+            </tbody>
+        </table>
+      </div>
+</body>
+</html>

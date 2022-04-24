@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body style="background-color: silver;">
+    <form action="/inadmin" method="post">
+        <label>En aşağı kısımda tüm kullanıcılar ve Şifreleri gözükmektedir.</label>
+        <div class="container" style="margin: 40px 100px;">
+            <label style="text-align: center; color: white;">Kayıt İşlemi</label>
+            <div class="row">
+
+                <div class="form-label-group col-sm-6">
+                    <input type="text" name="kullanici" class="form-control" placeholder="Kullanıcı adı">
+
+                </div>
+                <div class="form-label-group col-sm-6">
+                    <input type="text" name="sifre" class="form-control" placeholder="Şifre">
+
+                </div>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Kaydet</button>
+    </form>
+    <form action="/inadmin" method="post">
+        <div class="container" style="margin: 40px 100px;">
+            <label style="text-align: center; color: white;">Silme İşlemi</label>
+            <div class="row">
+
+                <div class="form-label-group col-sm-6">
+                    <input type="text" name="kullaniciguncelle" class="form-control" placeholder="Kullanıcı adı">
+
+                </div>
+            </div>
+        </div>
+        <div style="margin: 40px 100px;" class="row">
+
+            <div class="form-label-group col-sm-6">
+                <div class="form-label-group col-sm-6">
+                    <input type="text" name="kullaniciguncelle2" class="form-control" placeholder="Yeni kullanıcı adı">
+
+                </div>
+                <div style="margin: 12px 0px;" class="form-label-group col-sm-6">
+                    <input type="text" name="guncellesifre" class="form-control" placeholder="Yeni Şifre">
+
+                </div>
+            </div>
+        </div>
+        <button style="background-color:green;" type="submit" class="btn btn-primary btn-block">Güncelle</button>
+    </form>
+    <form action="/inadmin" method="post">
+        <div class="container" style="margin: 40px 100px;">
+            <label style="text-align: center; color: white;">Silme işlemi</label>
+            <div class="row">
+
+                <div class="form-label-group col-sm-6">
+                    <input type="text" name="kullanicisil" class="form-control" placeholder="Kullanıcı adı">
+
+                </div>
+            </div>
+        </div>
+        <button style="background-color: red;" type="submit" class="btn btn-primary btn-block">Sil</button>
+    </form>
+    <a href="/adminsorgu" style="background-color: black; margin: 30px 0px;" class="btn btn-primary btn-block">Sorgu</a>
+    <section style="margin: 40px 40px;">
+        <label> Güncelleme ve silme işlemleri</label>
+        <p></p>
+        <% for(var i=0;i<ogretmen.length;i++){%>
+                <div>
+                    <label style="color: slategrey;">
+                        <%=ogretmen[i].ogretmen_kadi%>
+                    </label>
+                    <label style="color: slategrey;">
+                        <%=ogretmen[i].ogretmen_sifre%>
+                    </label>
+                </div>
+            <%}%>
+    </section>
+
+</body>
+
+</html>
